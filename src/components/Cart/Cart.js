@@ -9,8 +9,12 @@ const Cart = ({ onHideModal }) => {
   const cartCtx = useContext(CartContext);
   const isCartHasItem = cartCtx.items.length > 0 ? true : false;
 
-  const removeItemFromCartHandler = id=>{};
-  const addItemToCartHandler = item=>{};
+  const removeItemFromCartHandler = (id) => {
+    cartCtx.removeItem(id)
+  };
+  const addItemToCartHandler = (item) => {
+    cartCtx.addItem({ ...item, amount: 1 });
+  };
   const cartItems = (
     <ul className={styles["cart-items"]}>
       {cartCtx.items.map((item) => (
@@ -18,7 +22,7 @@ const Cart = ({ onHideModal }) => {
           key={item.id}
           name={item.name}
           amount={item.amount}
-          price={item.price} 
+          price={item.price}
           onAdd={addItemToCartHandler.bind(null, item)}
           onRemove={removeItemFromCartHandler.bind(null, item.id)}
         />
