@@ -7,27 +7,27 @@ import styles from "./AvailableMeals.module.css";
 const DUMMY_MEALS = [
   {
     id: "m1",
-    name: "Sushi",
-    description: "Finest fish and veggies",
-    price: 22.99,
+    name: "Bakhtiari Kebab",
+    description: "From the most fresh meats",
+    price: 14.26,
   },
   {
     id: "m2",
-    name: "Schnitzel",
-    description: "A german specialty!",
+    name: "Fesenjan",
+    description: "Iranian best traditional food",
     price: 16.5,
   },
   {
     id: "m3",
-    name: "Barbecue Burger",
-    description: "American, raw, meaty",
+    name: "Joojeh Kebab",
+    description: "Highly delicious Kebab for you",
     price: 12.99,
   },
   {
     id: "m4",
-    name: "Green Bowl",
-    description: "Healthy...and green...",
-    price: 18.99,
+    name: "Ash Reshteh",
+    description: "Very light meal if you are in a diet",
+    price: 8.99,
   },
 ];
 

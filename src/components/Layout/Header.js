@@ -7,7 +7,7 @@ const Header = ({onShowModal}) => {
   return (
     <Fragment>
         <header className={styles.header}>
-            <h1>ReactMeals</h1>
+            <h1>Iranian Restaurant</h1>
             <HeaderCartButton onClick={onShowModal} />
         </header>
         <div className={styles['main-image']}>
