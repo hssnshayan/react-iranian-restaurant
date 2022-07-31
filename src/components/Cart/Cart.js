@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import Modal from "../UI/Modal";
+import CartItem from "./CartItem";
+import CartContext from "../../store/cart.context";
 
 import styles from "./Cart.module.css";
 
-const Cart = ({onHideModal}) => {
+const Cart = ({ onHideModal }) => {
+  const cartCtx = useContext(CartContext);
+  const isCartHasItem = cartCtx.items.length > 0 ? true : false;
+
+  const removeItemFromCartHandler = id=>{};
+  const addItemToCartHandler = item=>{};
   const cartItems = (
-    <ul className={styles['cart-items']}>
-      {[{ id: "c1", name: "Sushi", amount: 2, price: 12.98 }].map((item) => (
-        <li key={item.id}>{item.name}</li>
+    <ul className={styles["cart-items"]}>
+      {cartCtx.items.map((item) => (
+        <CartItem
+          key={item.id}
+          name={item.name}
+          amount={item.amount}
+          price={item.price} 
+          onAdd={addItemToCartHandler.bind(null, item)}
+          onRemove={removeItemFromCartHandler.bind(null, item.id)}
+        />
       ))}
     </ul>
   );
@@ -16,11 +30,15 @@ const Cart = ({onHideModal}) => {
       {cartItems}
       <div className={styles.total}>
         <span>Total Amount</span>
-        <span>35.89</span>
+        <span>{`$${cartCtx.totalAmount.toFixed(2)}`}</span>
       </div>
       <div className={styles.actions}>
-        <button className={styles['button--alt']} onClick={onHideModal}>Close</button>
-        <button className={styles['button--alt']}>Order</button>
+        <button className={styles["button--alt"]} onClick={onHideModal}>
+          Close
+        </button>
+        {isCartHasItem && (
+          <button className={styles["button--alt"]}>Order</button>
+        )}
       </div>
     </Modal>
   );
