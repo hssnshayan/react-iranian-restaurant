@@ -10,6 +10,17 @@
     margin: 0;
     padding: 0;
   }
+
+  .is-loading{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+  }
+  .is-error{
+    text-align: center;
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+  }
   
   @keyframes meals-appear {
     from {
